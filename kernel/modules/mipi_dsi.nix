@@ -29,7 +29,11 @@ in
             raspberry-pi.config.all.dt-overlays.reTerminal =
               {
                 enable = true;
-                params.tp_rotate = true;
+                params.tp_rotate =
+                  {
+                    enable = true;
+                    value = 1;
+                  };
               };
           };
 
