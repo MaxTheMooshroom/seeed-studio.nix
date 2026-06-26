@@ -1,0 +1,169 @@
+{
+  "nodes": {
+    "argononed": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729566243,
+        "narHash": "sha256-DPNI0Dpk5aym3Baf5UbEe5GENDrSmmXVdriRSWE+rgk=",
+        "owner": "nvmd",
+        "repo": "argononed",
+        "rev": "16dbee54d49b66d5654d228d1061246b440ef7cf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvmd",
+        "repo": "argononed",
+        "type": "github"
+      }
+    },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781152676,
+        "narHash": "sha256-RxWs5ND31KzTG7wvMM+PMfUjyNpmIEr999lqNARaM5o=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "ff8702b4de27f72b4c78573dfb89ec74e36abdf1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
+    "flake-compat": {
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778716662,
+        "narHash": "sha256-m1Yf0wZ8j1OHjTc2UwHwyQRSnNeSgLJOd7q5Y45hzi4=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "nixos-images": {
+      "inputs": {
+        "nixos-stable": [
+          "nixos-raspberrypi",
+          "nixpkgs"
+        ],
+        "nixos-unstable": [
+          "nixos-raspberrypi",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747747741,
+        "narHash": "sha256-LUOH27unNWbGTvZFitHonraNx0JF/55h30r9WxqrznM=",
+        "owner": "nvmd",
+        "repo": "nixos-images",
+        "rev": "cbbd6db325775096680b65e2a32fb6187c09bbb4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvmd",
+        "ref": "sdimage-installer",
+        "repo": "nixos-images",
+        "type": "github"
+      }
+    },
+    "nixos-raspberrypi": {
+      "inputs": {
+        "argononed": "argononed",
+        "flake-compat": "flake-compat",
+        "nixos-images": "nixos-images",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782007105,
+        "narHash": "sha256-oUdsm8POytc0v3OtXadp5WmF3mT+TzYgDjw+N6uzQu0=",
+        "owner": "nvmd",
+        "repo": "nixos-raspberrypi",
+        "rev": "16d0e780d5f9546eb7033d420951fd2e3fad76cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvmd",
+        "ref": "16d0e78",
+        "repo": "nixos-raspberrypi",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1781362223,
+        "narHash": "sha256-DnjLEsXUYn23wzY4FgLRApfDGkQs/Ek4iDuvFV1d9vg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "44b530598435148b317ff8ddad91cd138108929f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "44b5305",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "disko": "disko",
+        "flake-parts": "flake-parts",
+        "nixos-raspberrypi": "nixos-raspberrypi",
+        "nixpkgs": "nixpkgs",
+        "seeed-linux-dtoverlays": "seeed-linux-dtoverlays"
+      }
+    },
+    "seeed-linux-dtoverlays": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779452682,
+        "narHash": "sha256-kMxpqpfKRghy0jkJpBE9bDiB2JreH+oS9kiNzIADK4Y=",
+        "owner": "Seeed-Studio",
+        "repo": "seeed-linux-dtoverlays",
+        "rev": "0452c94b085a7b2191d493087394d4e3267d9193",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Seeed-Studio",
+        "repo": "seeed-linux-dtoverlays",
+        "rev": "0452c94b085a7b2191d493087394d4e3267d9193",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

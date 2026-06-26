@@ -1,0 +1,501 @@
+$ sudo ./scripts/reTerminal.sh --install --keep-kernel --device reTerminal 2>&1 | tee installer.log
++ ver=0.1
++ marker=0.0.0
++ FORCE_KERNEL=1.20210303-1
+++ uname -r
++ uname_r=6.18.34+rpt-rpi-v8
+++ dpkg --print-architecture
++ arch_r=arm64
++ SRC_PATH=/usr/src
+++ pwd
++ MOD_PATH=/home/maxine/sources/reterminal/dt-overlays/modules
+++ pwd
++ RES_PATH=/home/maxine/sources/reterminal/dt-overlays/extras/reTerminal/resources
++ CFG_PATH=/boot/config.txt
++ CLI_PATH=/boot/cmdline.txt
++ OVERLAY_DIR=/boot/overlays
++ BLACKLIST_PATH=/etc/modprobe.d/raspi-blacklist.conf
++ '[' -f /boot/firmware/config.txt ']'
++ CFG_PATH=/boot/firmware/config.txt
++ '[' -f /boot/firmware/cmdline.txt ']'
++ CLI_PATH=/boot/firmware/cmdline.txt
++ '[' -d /boot/firmware/overlays ']'
++ OVERLAY_DIR=/boot/firmware/overlays
+++ lsb_release -is
++ DISTRO_ID=Debian
+++ lsb_release -cs
++ DISTRO_CODE=trixie
++ BOOKWORM_NUM=12
++ TRIXIE_NUM=13
+++ cat /etc/debian_version
++ DEBIAN_VER=13.5
+++ echo 13.5
+++ awk -F. '{print $1}'
++ DEBIAN_NUM=13
++ '[' 13 -lt 12 ']'
++ '[' 13 -lt 13 ']'
++ APT_FORCE=
++ _VER_RUN=
++ [[ 0 -ne 0 ]]
++ '[' 13 -lt 12 ']'
++ echo -e '\n### Current Debian version is bookworm or later'
+
+### Current Debian version is bookworm or later
++ compat_kernel=
++ keep_kernel=
++ auto_remove=
++ device=reTerminal
++ '[' '!' -z --install ']'
++ case $1 in
++ shift
++ '[' '!' -z --keep-kernel ']'
++ case $1 in
++ keep_kernel=Y
++ shift
++ '[' '!' -z --device ']'
++ case $1 in
++ shift
++ device=reTerminal
++ shift
++ '[' '!' -z '' ']'
++ '[' reTerminal '!=' reTerminal ']'
++ '[' X '!=' X ']'
+++ df -BM
+++ grep /boot
+++ head -n 1
++ boot_line='/dev/mmcblk0p1      505M   87M      418M  18% /boot/firmware'
++ MIN_BOOT_SPC=25
++ '[' 'x/dev/mmcblk0p1      505M   87M      418M  18% /boot/firmware' = x ']'
+++ echo /dev/mmcblk0p1 505M 87M 418M 18% /boot/firmware
+++ awk '{print $4;}'
++ boot_space=418M
+++ echo 418
++ free_space=418
++ unit=M
++ [[ M != \M ]]
++ '[' 418 -lt 25 ']'
++ which apt
++ r=0
++ [[ 0 -eq 0 ]]
++ echo -e '\n### Install required tool packages'
+
+### Install required tool packages
++ apt-get update -y
+Hit:1 http://deb.debian.org/debian trixie InRelease
+Hit:2 http://deb.debian.org/debian trixie-updates InRelease
+Hit:3 http://deb.debian.org/debian-security trixie-security InRelease
+Hit:4 http://archive.raspberrypi.com/debian trixie InRelease
+Reading package lists...
++ apt-get -y install dkms --no-install-recommends
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  menu
+The following NEW packages will be installed:
+  dkms
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 60.1 kB of archives.
+After this operation, 241 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian trixie/main arm64 dkms all 3.2.2-1~deb13u1 [60.1 kB]
+Fetched 60.1 kB in 0s (756 kB/s)
+Selecting previously unselected package dkms.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 120927 files and directories currently installed.)
+Preparing to unpack .../dkms_3.2.2-1~deb13u1_all.deb ...
+Unpacking dkms (3.2.2-1~deb13u1) ...
+Setting up dkms (3.2.2-1~deb13u1) ...
+Processing triggers for man-db (2.13.1-1) ...
++ '[' XY '!=' X ']'
++ '[' 13 -lt 12 ']'
+++ dpkg -s linux-image-rpi-v8
+++ awk '/^Version:/{printf "%s\n",$2;}'
++ FORCE_KERNEL=1:6.18.34-1+rpt1
++ echo -e '\n### Keep current system kernel not to change'
+
+### Keep current system kernel not to change
++ '[' X1:6.18.34-1+rpt1 '!=' X ']'
++ echo -e 'The kernel & headers use package version: 1:6.18.34-1+rpt1'
+The kernel & headers use package version: 1:6.18.34-1+rpt1
++ echo -e '\n### Sync kernel and userland'
+
+### Sync kernel and userland
++ '[' arm64 '!=' arm64 ']'
++ echo -e '\n### Uninstall previous dkms module'
+
+### Uninstall previous dkms module
++ uninstall
++ '[' reTerminal = reTerminal ']'
++ uninstall_modules mipi_dsi ltr30x lis3lv02d bq24179_charger
++ '[' 4 -eq 0 ']'
++ for mod in "$@"
++ [[ -d /var/lib/dkms/mipi_dsi/0.1/0.0.0 ]]
++ [[ -e /usr/src/mipi_dsi-0.1 ]]
++ [[ -e /var/lib/dkms/mipi_dsi/0.1 ]]
++ for mod in "$@"
++ [[ -d /var/lib/dkms/ltr30x/0.1/0.0.0 ]]
++ [[ -e /usr/src/ltr30x-0.1 ]]
++ [[ -e /var/lib/dkms/ltr30x/0.1 ]]
++ for mod in "$@"
++ [[ -d /var/lib/dkms/lis3lv02d/0.1/0.0.0 ]]
++ [[ -e /usr/src/lis3lv02d-0.1 ]]
++ [[ -e /var/lib/dkms/lis3lv02d/0.1 ]]
++ for mod in "$@"
++ [[ -d /var/lib/dkms/bq24179_charger/0.1/0.0.0 ]]
++ [[ -e /usr/src/bq24179_charger-0.1 ]]
++ [[ -e /var/lib/dkms/bq24179_charger/0.1 ]]
++ unsetup_overlay reTerminal tp_rotate=1
++ safe_sed '/^dtoverlay=reTerminal,tp_rotate=1$/s//dtoverlay=reTerminal/' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.3PxSDa912D
++ sed '/^dtoverlay=reTerminal,tp_rotate=1$/s//dtoverlay=reTerminal/' /boot/firmware/config.txt
++ cat /tmp/tmp.3PxSDa912D
++ rm -f /tmp/tmp.3PxSDa912D
++ uninstall_overlay reTerminal reTerminal-bridge
++ '[' 2 -eq 0 ']'
+++ cat /boot/firmware/cmdline.txt
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US'
+++ echo console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles 'ds=nocloud;i=rpi-imager-1782333929136' cfg80211.ieee80211_regdom=US
+++ sed 's/ *\blogo.nologo\b//g'
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US'
+++ echo console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles 'ds=nocloud;i=rpi-imager-1782333929136' cfg80211.ieee80211_regdom=US
+++ sed 's/ *\bvt.global_cursor_default=0\b//g'
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US'
+++ echo console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles 'ds=nocloud;i=rpi-imager-1782333929136' cfg80211.ieee80211_regdom=US
+++ sed 's/ *\bconsole=tty3\b//g'
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US'
+++ echo console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles 'ds=nocloud;i=rpi-imager-1782333929136' cfg80211.ieee80211_regdom=US
+++ sed 's/ *\bloglevel=0\b//g'
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US'
++ echo console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles 'ds=nocloud;i=rpi-imager-1782333929136' cfg80211.ieee80211_regdom=US
++ safe_sed '/^disable_splash=1$/d' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.CEYMPMnABq
++ sed '/^disable_splash=1$/d' /boot/firmware/config.txt
++ cat /tmp/tmp.CEYMPMnABq
++ rm -f /tmp/tmp.CEYMPMnABq
++ safe_sed '/^ignore_lcd=1$/d' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.Gw4c2RMxH5
++ sed '/^ignore_lcd=1$/d' /boot/firmware/config.txt
++ cat /tmp/tmp.Gw4c2RMxH5
++ rm -f /tmp/tmp.Gw4c2RMxH5
++ safe_sed '/^dtoverlay=vc4-kms-v3d-pi4$/d' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.NZMNBL2HCb
++ sed '/^dtoverlay=vc4-kms-v3d-pi4$/d' /boot/firmware/config.txt
++ cat /tmp/tmp.NZMNBL2HCb
++ rm -f /tmp/tmp.NZMNBL2HCb
++ safe_sed '/^dtoverlay=i2c3,pins_4_5$/d' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.KEa8iXQX5Z
++ sed '/^dtoverlay=i2c3,pins_4_5$/d' /boot/firmware/config.txt
++ cat /tmp/tmp.KEa8iXQX5Z
++ rm -f /tmp/tmp.KEa8iXQX5Z
++ safe_sed '/^gpio=13=pu$/d' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.TcCemYfPaE
++ sed '/^gpio=13=pu$/d' /boot/firmware/config.txt
++ cat /tmp/tmp.TcCemYfPaE
++ rm -f /tmp/tmp.TcCemYfPaE
++ for i in "$@"
++ rm -fv /boot/firmware/overlays/reTerminal.dtbo
++ safe_sed '/^dtoverlay=reTerminal$/d' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.YELtUsLHOV
++ sed '/^dtoverlay=reTerminal$/d' /boot/firmware/config.txt
++ cat /tmp/tmp.YELtUsLHOV
++ rm -f /tmp/tmp.YELtUsLHOV
++ for i in "$@"
++ rm -fv /boot/firmware/overlays/reTerminal-bridge.dtbo
++ safe_sed '/^dtoverlay=reTerminal-bridge$/d' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.pI092BC4gR
++ sed '/^dtoverlay=reTerminal-bridge$/d' /boot/firmware/config.txt
++ cat /tmp/tmp.pI092BC4gR
++ rm -f /tmp/tmp.pI092BC4gR
++ rm -fv 'overlays/rpi/.*.tmp'
++ rm -fv 'overlays/rpi/.*.cmd'
++ rm -fv 'overlays/rpi/*.dtbo'
++ [[ 0 -eq 0 ]]
++ echo -e '\n### Install required kernel package'
+
+### Install required kernel package
++ install_kernel
++ local _url _prefix
+++ get_kernel_version
+++ local ZIMAGE IMG_OFFSET
+++ '[' -z '' ']'
+++ '[' 13 -lt 12 ']'
+++ ZIMAGE=/boot/firmware/kernel7l.img
+++ [[ arm64 == \a\r\m\6\4 ]]
+++ ZIMAGE=/boot/firmware/kernel8.img
+++ [[ 6.18.34+rpt-rpi-v8 == *2712* ]]
+++ '[' -f /boot/firmware/vmlinuz ']'
++++ LC_ALL=C
++++ grep -abo $'\037\213\b' /boot/firmware/kernel8.img
++++ head -n 1
++++ cut -d : -f 1
+++ IMG_OFFSET=0
++++ dd if=/boot/firmware/kernel8.img obs=64K ibs=4 skip=0
++++ zcat
++++ strings
++++ grep -a -m1 'Linux version'
++++ awk '{ print $3; }'
++++ grep '[0-9]'
+++ _VER_RUN=6.18.34+rpt-rpi-v8
+++ echo 6.18.34+rpt-rpi-v8
+++ return 0
++ local ker_ver=6.18.34+rpt-rpi-v8
++ '[' X1:6.18.34-1+rpt1 == X ']'
++ '[' 13 -lt 12 ']'
++ apt-get -y install linux-image-rpi-v8=1:6.18.34-1+rpt1
+Reading package lists...
+Building dependency tree...
+Reading state information...
+linux-image-rpi-v8 is already the newest version (1:6.18.34-1+rpt1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
++ apt-get -y install linux-headers-rpi-v8=1:6.18.34-1+rpt1
+Reading package lists...
+Building dependency tree...
+Reading state information...
+linux-headers-rpi-v8 is already the newest version (1:6.18.34-1+rpt1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
++ check_kernel_headers
+++ get_kernel_version
+++ local ZIMAGE IMG_OFFSET
+++ '[' -z '' ']'
+++ '[' 13 -lt 12 ']'
+++ ZIMAGE=/boot/firmware/kernel7l.img
+++ [[ arm64 == \a\r\m\6\4 ]]
+++ ZIMAGE=/boot/firmware/kernel8.img
+++ [[ 6.18.34+rpt-rpi-v8 == *2712* ]]
+++ '[' -f /boot/firmware/vmlinuz ']'
++++ LC_ALL=C
++++ grep -abo $'\037\213\b' /boot/firmware/kernel8.img
++++ head -n 1
++++ cut -d : -f 1
+++ IMG_OFFSET=0
++++ dd if=/boot/firmware/kernel8.img obs=64K ibs=4 skip=0
++++ zcat
++++ grep -a -m1 'Linux version'
++++ strings
++++ awk '{ print $3; }'
++++ grep '[0-9]'
+++ _VER_RUN=6.18.34+rpt-rpi-v8
+++ echo 6.18.34+rpt-rpi-v8
+++ return 0
++ VER_RUN=6.18.34+rpt-rpi-v8
++ '[' -d /lib/modules/6.18.34+rpt-rpi-v8/build ']'
++ echo KBUILD: /lib/modules/6.18.34+rpt-rpi-v8/build
+KBUILD: /lib/modules/6.18.34+rpt-rpi-v8/build
++ return 0
++ install
++ '[' reTerminal = reTerminal ']'
++ install_modules mipi_dsi ltr30x lis3lv02d bq24179_charger
++ '[' 4 -eq 0 ']'
+++ get_kernel_version
+++ local ZIMAGE IMG_OFFSET
+++ '[' -z '' ']'
+++ '[' 13 -lt 12 ']'
+++ ZIMAGE=/boot/firmware/kernel7l.img
+++ [[ arm64 == \a\r\m\6\4 ]]
+++ ZIMAGE=/boot/firmware/kernel8.img
+++ [[ 6.18.34+rpt-rpi-v8 == *2712* ]]
+++ '[' -f /boot/firmware/vmlinuz ']'
++++ LC_ALL=C
++++ grep -abo $'\037\213\b' /boot/firmware/kernel8.img
++++ head -n 1
++++ cut -d : -f 1
+++ IMG_OFFSET=0
++++ dd if=/boot/firmware/kernel8.img obs=64K ibs=4 skip=0
++++ zcat
++++ strings
++++ grep -a -m1 'Linux version'
++++ awk '{ print $3; }'
++++ grep '[0-9]'
+++ _VER_RUN=6.18.34+rpt-rpi-v8
+++ echo 6.18.34+rpt-rpi-v8
+++ return 0
++ kernel=6.18.34+rpt-rpi-v8
++ for mod in "$@"
++ target=/usr/src/mipi_dsi-0.1
++ mkdir -p /usr/src/mipi_dsi-0.1
++ cp -a /home/maxine/sources/reterminal/dt-overlays/modules/mipi_dsi/dkms.conf /home/maxine/sources/reterminal/dt-overlays/modules/mipi_dsi/Makefile /home/maxine/sources/reterminal/dt-overlays/modules/mipi_dsi/mipi_dsi_drv.c /home/maxine/sources/reterminal/dt-overlays/modules/mipi_dsi/mipi_dsi.h /home/maxine/sources/reterminal/dt-overlays/modules/mipi_dsi/panel-ili9881x.c /home/maxine/sources/reterminal/dt-overlays/modules/mipi_dsi/panel-st7701s.c /home/maxine/sources/reterminal/dt-overlays/modules/mipi_dsi/README.md /home/maxine/sources/reterminal/dt-overlays/modules/mipi_dsi/touch_panel.c /usr/src/mipi_dsi-0.1/
++ dkms build -k 6.18.34+rpt-rpi-v8 -m mipi_dsi -v 0.1
+Creating symlink /var/lib/dkms/mipi_dsi/0.1/source -> /usr/src/mipi_dsi-0.1
+
+The kernel is built without module signing facility, modules won't be signed
+
+Building module(s)..... done.
++ dkms install --force -k 6.18.34+rpt-rpi-v8 -m mipi_dsi -v 0.1
+Installing /lib/modules/6.18.34+rpt-rpi-v8/updates/dkms/mipi_dsi.ko.xz
+Running depmod.... done.
++ mkdir -p /var/lib/dkms/mipi_dsi/0.1/0.0.0
++ for mod in "$@"
++ target=/usr/src/ltr30x-0.1
++ mkdir -p /usr/src/ltr30x-0.1
++ cp -a /home/maxine/sources/reterminal/dt-overlays/modules/ltr30x/dkms.conf /home/maxine/sources/reterminal/dt-overlays/modules/ltr30x/ltr30x.c /home/maxine/sources/reterminal/dt-overlays/modules/ltr30x/Makefile /usr/src/ltr30x-0.1/
++ dkms build -k 6.18.34+rpt-rpi-v8 -m ltr30x -v 0.1
+Creating symlink /var/lib/dkms/ltr30x/0.1/source -> /usr/src/ltr30x-0.1
+
+The kernel is built without module signing facility, modules won't be signed
+
+Building module(s).... done.
++ dkms install --force -k 6.18.34+rpt-rpi-v8 -m ltr30x -v 0.1
+Installing /lib/modules/6.18.34+rpt-rpi-v8/updates/dkms/als_ltr30x.ko.xz
+Running depmod.... done.
++ mkdir -p /var/lib/dkms/ltr30x/0.1/0.0.0
++ for mod in "$@"
++ target=/usr/src/lis3lv02d-0.1
++ mkdir -p /usr/src/lis3lv02d-0.1
++ cp -a /home/maxine/sources/reterminal/dt-overlays/modules/lis3lv02d/dkms.conf /home/maxine/sources/reterminal/dt-overlays/modules/lis3lv02d/lis3lv02d.c /home/maxine/sources/reterminal/dt-overlays/modules/lis3lv02d/lis3lv02d.h /home/maxine/sources/reterminal/dt-overlays/modules/lis3lv02d/lis3lv02d_i2c.c /home/maxine/sources/reterminal/dt-overlays/modules/lis3lv02d/lis3lv02d_spi.c /home/maxine/sources/reterminal/dt-overlays/modules/lis3lv02d/Makefile /home/maxine/sources/reterminal/dt-overlays/modules/lis3lv02d/README.md /usr/src/lis3lv02d-0.1/
++ dkms build -k 6.18.34+rpt-rpi-v8 -m lis3lv02d -v 0.1
+Creating symlink /var/lib/dkms/lis3lv02d/0.1/source -> /usr/src/lis3lv02d-0.1
+
+The kernel is built without module signing facility, modules won't be signed
+
+Building module(s)..... done.
++ dkms install --force -k 6.18.34+rpt-rpi-v8 -m lis3lv02d -v 0.1
+Installing /lib/modules/6.18.34+rpt-rpi-v8/updates/dkms/lis331dlh-i2c.ko.xz
+Running depmod.... done.
++ mkdir -p /var/lib/dkms/lis3lv02d/0.1/0.0.0
++ for mod in "$@"
++ target=/usr/src/bq24179_charger-0.1
++ mkdir -p /usr/src/bq24179_charger-0.1
++ cp -a /home/maxine/sources/reterminal/dt-overlays/modules/bq24179_charger/bq25790_charger.c /home/maxine/sources/reterminal/dt-overlays/modules/bq24179_charger/bq25790_charger.h /home/maxine/sources/reterminal/dt-overlays/modules/bq24179_charger/dkms.conf /home/maxine/sources/reterminal/dt-overlays/modules/bq24179_charger/Makefile /usr/src/bq24179_charger-0.1/
++ dkms build -k 6.18.34+rpt-rpi-v8 -m bq24179_charger -v 0.1
+Creating symlink /var/lib/dkms/bq24179_charger/0.1/source -> /usr/src/bq24179_charger-0.1
+
+The kernel is built without module signing facility, modules won't be signed
+
+Building module(s).... done.
++ dkms install --force -k 6.18.34+rpt-rpi-v8 -m bq24179_charger -v 0.1
+Installing /lib/modules/6.18.34+rpt-rpi-v8/updates/dkms/bq24179_charger.ko.xz
+Running depmod.... done.
++ mkdir -p /var/lib/dkms/bq24179_charger/0.1/0.0.0
++ install_overlay reTerminal reTerminal-bridge
++ '[' 2 -eq 0 ']'
+++ cat /boot/firmware/cmdline.txt
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US'
+++ echo console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles 'ds=nocloud;i=rpi-imager-1782333929136' cfg80211.ieee80211_regdom=US
+++ sed 's/ *\bconsole=tty0\b//g'
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US'
++ grep -q '\blogo.nologo\b' /boot/firmware/cmdline.txt
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US logo.nologo'
++ grep -q '\bvt.global_cursor_default=0\b' /boot/firmware/cmdline.txt
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US logo.nologo vt.global_cursor_default=0'
++ grep -q '\bconsole=tty3\b' /boot/firmware/cmdline.txt
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US logo.nologo vt.global_cursor_default=0 console=tty3'
++ grep -q '\bloglevel=0\b' /boot/firmware/cmdline.txt
++ CMDLINE='console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles ds=nocloud;i=rpi-imager-1782333929136 cfg80211.ieee80211_regdom=US logo.nologo vt.global_cursor_default=0 console=tty3 loglevel=0'
++ echo console=serial0,115200 console=tty1 root=PARTUUID=62996027-02 rootfstype=ext4 fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles 'ds=nocloud;i=rpi-imager-1782333929136' cfg80211.ieee80211_regdom=US logo.nologo vt.global_cursor_default=0 console=tty3 loglevel=0
++ safe_sed 's/.*dtparam=i2c_arm=.*$/dtparam=i2c_arm=on/g' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.KmKoUy1KhU
++ sed 's/.*dtparam=i2c_arm=.*$/dtparam=i2c_arm=on/g' /boot/firmware/config.txt
++ cat /tmp/tmp.KmKoUy1KhU
++ rm -f /tmp/tmp.KmKoUy1KhU
++ grep -q '^enable_uart=1$' /boot/firmware/config.txt
++ echo enable_uart=1
++ grep -q '^dtoverlay=dwc2,dr_mode=host$' /boot/firmware/config.txt
++ '[' 13 -lt 12 ']'
++ safe_sed '/^dtparam=ant2$/d' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.eUwhgMkZ5A
++ sed '/^dtparam=ant2$/d' /boot/firmware/config.txt
++ cat /tmp/tmp.eUwhgMkZ5A
++ rm -f /tmp/tmp.eUwhgMkZ5A
++ grep -q '^disable_splash=1$' /boot/firmware/config.txt
++ echo disable_splash=1
++ grep -q '^ignore_lcd=1$' /boot/firmware/config.txt
++ echo ignore_lcd=1
++ '[' 13 -lt 12 ']'
++ safe_sed '/^dtoverlay=vc4-kms-v3d-pi4$/d' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.H3scayQH6K
++ sed '/^dtoverlay=vc4-kms-v3d-pi4$/d' /boot/firmware/config.txt
++ cat /tmp/tmp.H3scayQH6K
++ rm -f /tmp/tmp.H3scayQH6K
++ grep -q '^dtoverlay=vc4-kms-v3d$' /boot/firmware/config.txt
++ grep -q '^dtoverlay=i2c3,pins_4_5$' /boot/firmware/config.txt
++ echo dtoverlay=i2c3,pins_4_5
++ grep -q '^gpio=13=pu$' /boot/firmware/config.txt
++ echo gpio=13=pu
++ for i in "$@"
++ make overlays/rpi/reTerminal-overlay.dtbo
+  DTC     overlays/rpi/reTerminal-overlay.dtbo
+overlays/rpi/reTerminal-overlay.dts:23.15-33.5: Warning (avoid_unnecessary_addr_size): /fragment@1/__overlay__: unnecessary #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg" property
++ cp -fv overlays/rpi/reTerminal-overlay.dtbo /boot/firmware/overlays/reTerminal.dtbo
+'overlays/rpi/reTerminal-overlay.dtbo' -> '/boot/firmware/overlays/reTerminal.dtbo'
++ '[' reTerminal '!=' reTerminal-bridge ']'
++ grep -q '^dtoverlay=reTerminal$' /boot/firmware/config.txt
++ echo dtoverlay=reTerminal
++ for i in "$@"
++ make overlays/rpi/reTerminal-bridge-overlay.dtbo
+  DTC     overlays/rpi/reTerminal-bridge-overlay.dtbo
++ cp -fv overlays/rpi/reTerminal-bridge-overlay.dtbo /boot/firmware/overlays/reTerminal-bridge.dtbo
+'overlays/rpi/reTerminal-bridge-overlay.dtbo' -> '/boot/firmware/overlays/reTerminal-bridge.dtbo'
++ '[' reTerminal-bridge '!=' reTerminal-bridge ']'
++ '[' 13 -ge 12 ']'
++ setup_overlay reTerminal tp_rotate=1
++ safe_sed '/^dtoverlay=reTerminal$/s//dtoverlay=reTerminal,tp_rotate=1/' /boot/firmware/config.txt
+++ mktemp
++ local tmp=/tmp/tmp.6wCQLPt0NC
++ sed '/^dtoverlay=reTerminal$/s//dtoverlay=reTerminal,tp_rotate=1/' /boot/firmware/config.txt
++ cat /tmp/tmp.6wCQLPt0NC
++ rm -f /tmp/tmp.6wCQLPt0NC
++ setup_display
++ case $DISTRO_ID in
++ case $DISTRO_CODE in
++ for file in /home/*
++ '[' -e /home/maxine/.config/wayfire.ini ']'
++ mkdir -p /home/maxine/.config/
++ cp -v /home/maxine/sources/reterminal/dt-overlays/extras/reTerminal/resources/wayfire.ini /home/maxine/.config/
+'/home/maxine/sources/reterminal/dt-overlays/extras/reTerminal/resources/wayfire.ini' -> '/home/maxine/.config/wayfire.ini'
++ [[ -e /home/maxine/.config/kanshi/config ]]
+++ grep -q '^output DSI-1' /home/maxine/.config/kanshi/config
++ [[ ! -n '' ]]
++ sed -i 's/\(output DSI-1.*\)transform normal/\1transform 270/' /home/maxine/.config/kanshi/config
++ '[' trixie = trixie ']'
++ for file in /home/*
++ mkdir -p /home/maxine/.config/labwc
++ grep -q 'wlr-randr --output DSI-1 --transform 270' /home/maxine/.config/labwc/autostart
+grep: /home/maxine/.config/labwc/autostart: No such file or directory
++ echo 'wlr-randr --output DSI-1 --transform 270 &'
++ '[' reTerminal = reTerminal-DM ']'
++ '[' 13 -ge 12 ']'
++ setup_tp
++ case $DISTRO_ID in
++ case $DISTRO_CODE in
++ '[' reTerminal = reTerminal-DM ']'
+++ uname -r
++ update-initramfs -c -k 6.18.34+rpt-rpi-v8
+update-initramfs: Generating /boot/initrd.img-6.18.34+rpt-rpi-v8
+'/boot/initrd.img-6.18.34+rpt-rpi-v8' -> '/boot/firmware/initramfs8'
++ '[' reTerminal = reTerminal ']'
++ '[' -f /var/lib/alsa/asound.state ']'
++ '[' -f /etc/asound.conf ']'
++ cp /home/maxine/sources/reterminal/dt-overlays/modules/seeed-voicecard/wm8960_asound.state /var/lib/alsa/asound.state
++ cp /home/maxine/sources/reterminal/dt-overlays/modules/seeed-voicecard/asound_2mic.conf /etc/asound.conf
++ alsactl -L restore
+alsa-lib main.c:1554:(snd_use_case_mgr_open) error: failed to import hw:0 use case configuration -2
+No state is present for card vc4hdmi0
+alsa-lib main.c:1554:(snd_use_case_mgr_open) error: failed to import hw:0 use case configuration -2
+Found hardware: "vc4-hdmi" "" "" "" ""
+Hardware is initialized using a generic method
+No state is present for card vc4hdmi0
+alsa-lib main.c:1554:(snd_use_case_mgr_open) error: failed to import hw:1 use case configuration -2
+No state is present for card vc4hdmi1
+alsa-lib main.c:1554:(snd_use_case_mgr_open) error: failed to import hw:1 use case configuration -2
+Found hardware: "vc4-hdmi" "" "" "" ""
+Hardware is initialized using a generic method
+No state is present for card vc4hdmi1
++ echo ------------------------------------------------------
+------------------------------------------------------
++ echo 'Please reboot your device to apply all settings'
+Please reboot your device to apply all settings
++ echo 'Enjoy!'
+Enjoy!
++ echo ------------------------------------------------------
+------------------------------------------------------
++ set +x

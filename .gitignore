@@ -1,0 +1,14 @@
+# I use `ref/` or `ref-*/` for reference-code, but these do not
+# want to be committed.
+ref/
+ref-*/
+
+# Ignore build outputs from performing a nix-build or `nix build` command
+result
+result-*
+
+# Ignore automatically generated direnv output
+.direnv
+
+# Ignore NixOS interactive test driver history
+**/.nixos-test-history
