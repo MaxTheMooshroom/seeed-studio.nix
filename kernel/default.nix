@@ -10,7 +10,8 @@ in
     [
       ./options
       ./modules
-    ];
+    ]
+    ;
 
   boot.kernelPackages = linuxPackagesFor linux_rpi4_v6_18_33;
 
@@ -19,10 +20,11 @@ in
       "seeed-linux-dtoverlays-patched"
       {}
       ''
-        cp -r ${seeed-linux-dtoverlays} $out
+        cp -r "${seeed-linux-dtoverlays}" $out
         chmod -R +w $out
 
         substituteInPlace $out/modules/**/Makefile \
           --replace-warn '/lib/modules/$(KVERSION)/build' '$(KERNEL_DIR)'
-      '';
+      ''
+    ;
 }

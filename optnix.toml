@@ -1,0 +1,14 @@
+[scopes.default]
+  description = "NixOS configuration for `nixos` systems on RaspberryPi hardware."
+  options-list-cmd = """
+    nix eval .#nixosConfigurations.reTerminal --json --apply '
+      opts:
+      builtins.filter
+        (v: v.visible && !v.internal)
+        (opts.pkgs.lib.optionAttrSetToDocList opts.options)
+    '
+  """
+  evaluator = """
+    nix eval --impure .#nixosConfigurations.reTerminal.config \
+      --apply "import ./optnix-evaluator.nix ''{{ .Option }}''"
+  """

@@ -1,46 +1,24 @@
 {
   lib,
+  pkgs,
 
   seeed-linux-dtoverlays,
-  packages-kernelModules,
+  # packages-kernelModules,
 
   config,
 
   ...
 }:
 let
-  inherit (lib) mkOption types;
+  inherit (lib) types;
 
+  inherit (lib.mkOption {}) _type;
+
+  deviceTree = config.hardware.deviceTree;
   reTerminal = config.reTerminal;
-  expansionPack = reTerminal.modules.expansionPack;
-
-  _type = (mkOption {})._type;
-  getAttrs = lib.flip lib.getAttrs;
-
-  reTerminal-kernelModules =
-    getAttrs
-      packages-kernelModules
-      [
-        "bq24179_charger"
-        "lis3lv02d"
-        "ltr30x"
-        "mipi_dsi"
-      ];
-
-  expansion-modules =
-    lib.concatLists
-      [
-        (lib.optional expansionPack)
-      ];
-
-  seeedOverlayNamed =
-    name:
-    {
-      inherit name;
-      dtsFile = "${seeed-linux-dtoverlays}/overlays/rpi/${name}-overlay.dts";
-    };
 in
 {
+
   options.reTerminal =
     {
       enable = lib.mkEnableOption "reTerminal support";
@@ -120,19 +98,30 @@ in
       {
         hardware =
           {
-            # overridden by ../modules/mipi_dsi.nix if battery support is enabled.
-            #
-            # /boot/firmware/config.txt
-            # dtoverlay=reTerminal
-            raspberry-pi.config.all.dt-overlays.reTerminal =
-              # lib.mkIf
-              #   (!reTerminal.modules.enable-battery-support)
-              {
-                enable = true;
-                params = {};
-              };
+            # # overridden by ../modules/mipi_dsi.nix if battery support is enabled.
+            # #
+            # # /boot/firmware/config.txt
+            # # dtoverlay=reTerminal
+            # raspberry-pi.config.all.dt-overlays.reTerminal-overlay =
+            #   # lib.mkIf
+            #   #   (!reTerminal.modules.enable-battery-support)
+            #   {
+            #     enable = true;
+            #     params = {};
+            #   }
+            #   ;
 
-            deviceTree.overlays = [ (seeedOverlayNamed "reTerminal") ];
+            deviceTree.overlays =
+              [
+                {
+                  name = "reTerminal-overlay";
+                  dtsFile = seeed-linux-dtoverlays + "/overlays/rpi/reTerminal-overlay.dts";
+                  filter = "*bcm2711*.dtb";
+                }
+              ]
+              ;
+
+            # deviceTree.overlays = [ (seeedOverlayNamed "reTerminal") ];
           };
       };
 }

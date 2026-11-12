@@ -3,5 +3,6 @@
 nix build \
   --cores 8 \
   --print-build-logs \
+  --keep-going \
   --show-trace
 

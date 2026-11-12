@@ -1,19 +1,24 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 {
-  networking = {
-    hostName = "reterminal";
+  networking =
+    {
+      hostName = "reterminal";
 
-    # Configure network connections interactively with nmcli or nmtui.
-    networkmanager.enable = true;
-  };
+      # Configure network connections interactively with nmcli or nmtui.
+      networkmanager.enable = true;
+    }
+    ;
 
-  environment.systemPackages = with pkgs; [
-    neovim
-    nano
-    wget
-    curl
-    usbutils
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      neovim
+      nano
+      wget
+      curl
+      usbutils
+    ]
+    ;
 
   programs.gnupg.agent = {
     enable = true;
